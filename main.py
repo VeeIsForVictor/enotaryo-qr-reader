@@ -1,6 +1,3 @@
-def main():
-    print("Hello from enotaryo-qr-reader!")
+import cv2
 
-
-if __name__ == "__main__":
-    main()
+img = cv2.imread('/')
