@@ -19,9 +19,14 @@ async def signatures(file: UploadFile):
     img = cv2.imread(filename)
     qrd = cv2.QRCodeDetector()
     retval, decoded_info, _, _ = qrd.detectAndDecodeMulti(img)
+    ret_info = []
+
+    for info in decoded_info:
+        ret_info.append(JSONDecoder().decode(info))
 
     os.remove(filename)
+    
     return {
-        retval,
-        decoded_info
+        "qrCodeResult": retval,
+        "signatures": ret_info
     }
