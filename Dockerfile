@@ -8,6 +8,4 @@ WORKDIR /app
 
 RUN uv sync --frozen
 
-COPY ./main.py /code/app/main.py
-
-CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+CMD ["uv", "run", "fastapi", "run", "app/main.py", "--port", "80"]
