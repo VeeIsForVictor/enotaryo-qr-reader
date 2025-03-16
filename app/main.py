@@ -9,6 +9,10 @@ server = FastAPI()
 
 LOGGER = logging.getLogger(__name__)
 
+@server.get("/")
+async def root():
+    return {"serverName": "enotaryo-qr-reader"}
+
 @server.post('/document/')
 async def signatures(file: UploadFile):
     filename = f"dump/{datetime.now()}-{file.filename}"
