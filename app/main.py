@@ -15,6 +15,7 @@ async def root():
 
 @server.post('/document/')
 async def signatures(file: UploadFile):
+    os.makedirs("dump", exist_ok=True)
     filename = f"dump/{datetime.now()}-{file.filename}"
     image_file = open(filename, "xb+")
     data = await file.read()
